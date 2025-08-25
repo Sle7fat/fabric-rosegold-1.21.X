@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "net.sl7f.rosegold.mixin.client",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"ExampleClientMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

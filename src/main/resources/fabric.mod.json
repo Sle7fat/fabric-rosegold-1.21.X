@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "rosegold",
+	"version": "${version}",
+	"name": "Rose Gold",
+	"description": "This is a mod that adds rose gold stuff to the game, they serve as a stage between iron and diamond gear.",
+	"authors": [
+		"Sl7F"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/rosegold/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.sl7f.rosegold.RoseGold"
+		],
+		"client": [
+			"net.sl7f.rosegold.RoseGoldClient"
+		],
+		"fabric-datagen": [
+			"net.sl7f.rosegold.RoseGoldDataGenerator"
+		]
+	},
+	"mixins": [
+		"rosegold.mixins.json",
+		{
+			"config": "rosegold.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.17.2",
+		"minecraft": ">=1.21 <1.22",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
