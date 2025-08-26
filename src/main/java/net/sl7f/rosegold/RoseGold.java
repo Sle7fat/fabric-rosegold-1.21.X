@@ -2,6 +2,7 @@ package net.sl7f.rosegold;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.sl7f.rosegold.Item.ModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,7 +13,7 @@ public class RoseGold implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-
+        ModItems.registerModItems();
 
 	}
 }
