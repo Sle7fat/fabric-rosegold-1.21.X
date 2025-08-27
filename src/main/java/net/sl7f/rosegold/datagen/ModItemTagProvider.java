@@ -23,5 +23,15 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ItemTags.PICKAXES).add(ModItems.ROSE_GOLD_PICKAXE);
         getOrCreateTagBuilder(ItemTags.SHOVELS).add(ModItems.ROSE_GOLD_SHOVEL);
         getOrCreateTagBuilder(ItemTags.HOES).add(ModItems.ROSE_GOLD_HOE);
+
+        getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
+                .add(ModItems.ROSE_GOLD_BOOTS)
+                .add(ModItems.ROSE_GOLD_LEGGINGS)
+                .add(ModItems.ROSE_GOLD_CHESTPLATE)
+                .add(ModItems.ROSE_GOLD_HELMET);
+        getOrCreateTagBuilder(ItemTags.FOOT_ARMOR_ENCHANTABLE).add(ModItems.ROSE_GOLD_BOOTS);
+        getOrCreateTagBuilder(ItemTags.LEG_ARMOR_ENCHANTABLE).add(ModItems.ROSE_GOLD_LEGGINGS);
+        getOrCreateTagBuilder(ItemTags.CHEST_ARMOR_ENCHANTABLE).add(ModItems.ROSE_GOLD_CHESTPLATE);
+        getOrCreateTagBuilder(ItemTags.HEAD_ARMOR_ENCHANTABLE).add(ModItems.ROSE_GOLD_HELMET);
     }
 }

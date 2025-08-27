@@ -6,12 +6,13 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.sl7f.rosegold.RoseGold;
-import net.sl7f.rosegold.RoseGoldToolMaterial;
 
 public class ModItems {
 
     public static final Item ROSE_GOLD_ALLOY = registerItem("rose_gold_alloy", new Item(new Item.Settings()));
-    public static final Item ROSE_GOLD_UPGRADE_SMITHING_TEMPLATE = registerItem("rose_gold_upgrade_smithing_template", new Item(new Item.Settings()));
+
+    public static final RoseGoldSmithingTemplateItem ROSE_GOLD_UPGRADE_SMITHING_TEMPLATE =
+            registerRoseGoldSmithingTemplateItem("rose_gold_upgrade_smithing_template", new RoseGoldSmithingTemplateItem(new Item.Settings()));
 
     public static final Item ROSE_GOLD_SWORD = registerItem("rose_gold_sword",
             new SwordItem(RoseGoldToolMaterial.ROSE_GOLD_SWORD, new Item.Settings()
@@ -34,7 +35,29 @@ public class ModItems {
                     .attributeModifiers(SwordItem.createAttributeModifiers(RoseGoldToolMaterial.ROSE_GOLD, -2, 0f))));
 
 
+    public static final Item ROSE_GOLD_HELMET = registerItem("rose_gold_helmet",
+            new ArmorItem(RoseGoldArmorMaterial.ROSE_GOLD_ARMOR_MATERIAL, ArmorItem.Type.HELMET, new Item.Settings()
+                    .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(19))));
+
+    public static final Item ROSE_GOLD_CHESTPLATE = registerItem("rose_gold_chestplate",
+            new ArmorItem(RoseGoldArmorMaterial.ROSE_GOLD_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Settings()
+                    .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(19))));
+
+    public static final Item ROSE_GOLD_LEGGINGS = registerItem("rose_gold_leggings",
+            new ArmorItem(RoseGoldArmorMaterial.ROSE_GOLD_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, new Item.Settings()
+                    .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(19))));
+
+    public static final Item ROSE_GOLD_BOOTS = registerItem("rose_gold_boots",
+            new ArmorItem(RoseGoldArmorMaterial.ROSE_GOLD_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, new Item.Settings()
+                    .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(19))));
+
+
+
     private static Item registerItem(String name, Item item) {
+        return Registry.register(Registries.ITEM, Identifier.of(RoseGold.MOD_ID, name), item);
+    }
+
+    private static RoseGoldSmithingTemplateItem registerRoseGoldSmithingTemplateItem(String name, RoseGoldSmithingTemplateItem item) {
         return Registry.register(Registries.ITEM, Identifier.of(RoseGold.MOD_ID, name), item);
     }
 
@@ -51,6 +74,10 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
             entries.addAfter(Items.GOLDEN_SWORD, ROSE_GOLD_SWORD);
             entries.addAfter(Items.GOLDEN_AXE, ROSE_GOLD_AXE);
+            entries.addAfter(Items.GOLDEN_BOOTS, ROSE_GOLD_HELMET);
+            entries.addAfter(ROSE_GOLD_HELMET, ROSE_GOLD_CHESTPLATE);
+            entries.addAfter(ROSE_GOLD_CHESTPLATE, ROSE_GOLD_LEGGINGS);
+            entries.addAfter(ROSE_GOLD_LEGGINGS, ROSE_GOLD_BOOTS);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {

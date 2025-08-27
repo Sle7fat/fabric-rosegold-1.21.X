@@ -1,10 +1,15 @@
 {
   "item.rosegold.rose_gold_alloy": "Rose Gold Alloy",
-  "item.rosegold.rose_gold_upgrade_smithing_template": "Rose Gold Smithing Template",
+  "item.rosegold.rose_gold_upgrade_smithing_template": "Smithing Template",
 
   "item.rosegold.rose_gold_sword": "Rose Gold Sword",
   "item.rosegold.rose_gold_axe": "Rose Gold Axe",
   "item.rosegold.rose_gold_pickaxe": "Rose Gold Pickaxe",
   "item.rosegold.rose_gold_shovel": "Rose Gold Shovel",
-  "item.rosegold.rose_gold_hoe": "Rose Gold Hoe"
+  "item.rosegold.rose_gold_hoe": "Rose Gold Hoe",
+
+  "item.rosegold.rose_gold_helmet": "Rose Gold Helmet",
+  "item.rosegold.rose_gold_chestplate": "Rose Gold Chestplate",
+  "item.rosegold.rose_gold_leggings": "Rose Gold Leggings",
+  "item.rosegold.rose_gold_boots": "Rose Gold Boots"
 }

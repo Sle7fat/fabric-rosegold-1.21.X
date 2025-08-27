@@ -1,15 +1,12 @@
-package net.sl7f.rosegold;
+package net.sl7f.rosegold.Item;
 
 import com.google.common.base.Suppliers;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
-import net.sl7f.rosegold.Item.ModItems;
 
 import java.util.Objects;
 import java.util.function.Supplier;

@@ -9,11 +9,9 @@ import net.minecraft.data.server.recipe.SmithingTransformRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.SmithingRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.sl7f.rosegold.Item.ModItems;
-import org.intellij.lang.annotations.Identifier;
 
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -31,6 +29,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 Items.IRON_AXE, ModItems.ROSE_GOLD_AXE,
                 Items.IRON_SHOVEL, ModItems.ROSE_GOLD_SHOVEL,
                 Items.IRON_HOE, ModItems.ROSE_GOLD_HOE);
+
+        final Map<Item, Item> IRON_TO_ROSE_GOLD_ARMOR = Map.of(
+                Items.IRON_SWORD, ModItems.ROSE_GOLD_SWORD,
+                Items.IRON_BOOTS, ModItems.ROSE_GOLD_BOOTS,
+                Items.IRON_LEGGINGS, ModItems.ROSE_GOLD_LEGGINGS,
+                Items.IRON_CHESTPLATE, ModItems.ROSE_GOLD_CHESTPLATE,
+                Items.IRON_HELMET, ModItems.ROSE_GOLD_HELMET);
+
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ROSE_GOLD_ALLOY)
                 .input(Items.GOLD_INGOT, 4)
@@ -59,6 +65,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .criterion("has_rose_gold_alloy", conditionsFromItem(ModItems.ROSE_GOLD_ALLOY))
                     .criterion(hasItem(ModItems.ROSE_GOLD_UPGRADE_SMITHING_TEMPLATE), conditionsFromItem(ModItems.ROSE_GOLD_UPGRADE_SMITHING_TEMPLATE))
                     .offerTo(exporter, getRecipeName(roseGoldTool));
+        });
+
+        IRON_TO_ROSE_GOLD_ARMOR.forEach((iron, roseGold) -> {
+            SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(ModItems.ROSE_GOLD_UPGRADE_SMITHING_TEMPLATE),
+                            Ingredient.ofItems(iron),
+                            Ingredient.ofItems(ModItems.ROSE_GOLD_ALLOY),
+                            RecipeCategory.COMBAT,
+                    roseGold)
+                    .criterion("has_rose_gold_alloy", conditionsFromItem(ModItems.ROSE_GOLD_ALLOY))
+                    .criterion(hasItem(ModItems.ROSE_GOLD_UPGRADE_SMITHING_TEMPLATE), conditionsFromItem(ModItems.ROSE_GOLD_UPGRADE_SMITHING_TEMPLATE))
+                    .offerTo(exporter, getRecipeName(roseGold));
         });
 
 
