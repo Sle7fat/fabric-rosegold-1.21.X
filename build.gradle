@@ -69,6 +69,10 @@ java {
 	targetCompatibility = JavaVersion.VERSION_21
 }
 
+tasks.withType(Jar).configureEach {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
 jar {
 	inputs.property "archivesName", project.base.archivesName
 
