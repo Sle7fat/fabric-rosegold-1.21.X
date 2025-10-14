@@ -5,8 +5,11 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
-import net.minecraft.item.ArmorItem;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.equipment.EquipmentModel;
+import net.minecraft.util.Identifier;
 import net.sl7f.rosegold.Item.ModItems;
+import net.sl7f.rosegold.RoseGold;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -29,9 +32,18 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ROSE_GOLD_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ROSE_GOLD_HOE, Models.HANDHELD);
 
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ROSE_GOLD_BOOTS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ROSE_GOLD_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ROSE_GOLD_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ROSE_GOLD_HELMET));
+        itemModelGenerator.registerArmor(ModItems.ROSE_GOLD_BOOTS, Identifier.of(RoseGold.MOD_ID, "rose_gold"),
+                EquipmentModel.builder().addHumanoidLayers(Identifier.of(RoseGold.MOD_ID, "rose_gold")).build(), EquipmentSlot.FEET);
+
+        itemModelGenerator.registerArmor(ModItems.ROSE_GOLD_LEGGINGS, Identifier.of(RoseGold.MOD_ID, "rose_gold"),
+                EquipmentModel.builder().addHumanoidLayers(Identifier.of(RoseGold.MOD_ID, "rose_gold")).build(), EquipmentSlot.LEGS);
+
+        itemModelGenerator.registerArmor(ModItems.ROSE_GOLD_CHESTPLATE, Identifier.of(RoseGold.MOD_ID, "rose_gold"),
+                EquipmentModel.builder().addHumanoidLayers(Identifier.of(RoseGold.MOD_ID, "rose_gold")).build(), EquipmentSlot.CHEST);
+
+        itemModelGenerator.registerArmor(ModItems.ROSE_GOLD_HELMET, Identifier.of(RoseGold.MOD_ID, "rose_gold"),
+                EquipmentModel.builder().addHumanoidLayers(Identifier.of(RoseGold.MOD_ID, "rose_gold")).build(), EquipmentSlot.HEAD);
+
     }
+
 }

@@ -50,11 +50,11 @@ public class RoseGoldSmithingTemplateItem extends SmithingTemplateItem {
         super(
                 APPLIES_TO,
                 INGREDIENTS,
-                TITLE,
                 BASE_SLOT_DESCRIPTION,
                 ADDITIONS_SLOT_DESCRIPTION,
                 EMPTY_BASE_SLOT_TEXTURES,
-                EMPTY_ADDITIONS_SLOT_TEXTURES
+                EMPTY_ADDITIONS_SLOT_TEXTURES,
+                settings
         );
     }
 }

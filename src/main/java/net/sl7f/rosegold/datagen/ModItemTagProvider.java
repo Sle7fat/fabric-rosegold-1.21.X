@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 import net.sl7f.rosegold.Item.ModItems;
+import net.sl7f.rosegold.util.ModTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -17,6 +18,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
 
         getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS).add(ModItems.ROSE_GOLD_ALLOY);
+        getOrCreateTagBuilder(ModTags.Items.ROSE_GOLD_REPAIR).add(ModItems.ROSE_GOLD_ALLOY);
 
         getOrCreateTagBuilder(ItemTags.SWORDS).add(ModItems.ROSE_GOLD_SWORD);
         getOrCreateTagBuilder(ItemTags.AXES).add(ModItems.ROSE_GOLD_AXE);

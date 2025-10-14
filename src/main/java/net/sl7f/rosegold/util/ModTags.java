@@ -19,6 +19,8 @@ public class ModTags {
 
     public static class Items {
 
+        public static final TagKey<Item> ROSE_GOLD_REPAIR = createTag("rose_gold_repair");
+
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, Identifier.of(RoseGold.MOD_ID, name));
         }

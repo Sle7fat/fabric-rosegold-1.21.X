@@ -1,59 +1,10 @@
 package net.sl7f.rosegold.Item;
 
-import com.google.common.base.Suppliers;
-import net.minecraft.block.Block;
-import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ToolMaterial;
-import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.registry.tag.TagKey;
+import net.sl7f.rosegold.util.ModTags;
 
-import java.util.Objects;
-import java.util.function.Supplier;
-
-public enum RoseGoldToolMaterial implements ToolMaterial {
-
-    ROSE_GOLD_SWORD(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 500, 12.0F, 2.5F, 20, () -> Ingredient.ofItems(new ItemConvertible[]{ModItems.ROSE_GOLD_ALLOY})),
-    ROSE_GOLD(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 500, 12.0F, 2.0F, 20, () -> Ingredient.ofItems(new ItemConvertible[]{ModItems.ROSE_GOLD_ALLOY}));
-
-    private final TagKey<Block> inverseTag;
-    private final int itemDurability;
-    private final float miningSpeed;
-    private final float attackDamage;
-    private final int enchantability;
-    private final Supplier<Ingredient> repairIngredient;
-
-    private RoseGoldToolMaterial(final TagKey<Block> inverseTag, final int itemDurability, final float miningSpeed, final float attackDamage, final int enchantability, final Supplier<Ingredient> repairIngredient) {
-        this.inverseTag = inverseTag;
-        this.itemDurability = itemDurability;
-        this.miningSpeed = miningSpeed;
-        this.attackDamage = attackDamage;
-        this.enchantability = enchantability;
-        Objects.requireNonNull(repairIngredient);
-        this.repairIngredient = Suppliers.memoize(repairIngredient::get);
-    }
-
-    public int getDurability() {
-        return this.itemDurability;
-    }
-
-    public float getMiningSpeedMultiplier() {
-        return this.miningSpeed;
-    }
-
-    public float getAttackDamage() {
-        return this.attackDamage;
-    }
-
-    public TagKey<Block> getInverseTag() {
-        return this.inverseTag;
-    }
-
-    public int getEnchantability() {
-        return this.enchantability;
-    }
-
-    public Ingredient getRepairIngredient() {
-        return (Ingredient)this.repairIngredient.get();
-    }
+public class RoseGoldToolMaterial {
+    public static final ToolMaterial ROSE_GOLD = new ToolMaterial(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 500, 12.0f, 2.0f, 20,
+            ModTags.Items.ROSE_GOLD_REPAIR);
 }

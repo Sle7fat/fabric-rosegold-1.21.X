@@ -2,54 +2,59 @@ package net.sl7f.rosegold.Item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
+import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.sl7f.rosegold.RoseGold;
 
 public class ModItems {
 
-    public static final Item ROSE_GOLD_ALLOY = registerItem("rose_gold_alloy", new Item(new Item.Settings()));
+    public static final Item ROSE_GOLD_ALLOY = registerItem("rose_gold_alloy", new Item(new Item.Settings()
+            .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RoseGold.MOD_ID, "rose_gold_alloy")))));
 
     public static final RoseGoldSmithingTemplateItem ROSE_GOLD_UPGRADE_SMITHING_TEMPLATE =
-            registerRoseGoldSmithingTemplateItem("rose_gold_upgrade_smithing_template", new RoseGoldSmithingTemplateItem(new Item.Settings()));
+            registerRoseGoldSmithingTemplateItem("rose_gold_upgrade_smithing_template", new RoseGoldSmithingTemplateItem(new Item.Settings()
+                    .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RoseGold.MOD_ID, "rose_gold_upgrade_smithing_template")))));
 
     public static final Item ROSE_GOLD_SWORD = registerItem("rose_gold_sword",
-            new SwordItem(RoseGoldToolMaterial.ROSE_GOLD_SWORD, new Item.Settings()
-                    .attributeModifiers(SwordItem.createAttributeModifiers(RoseGoldToolMaterial.ROSE_GOLD_SWORD, 3, -2.4f))));
+            new SwordItem(RoseGoldToolMaterial.ROSE_GOLD, 3.5f, -2.4f, new Item.Settings()
+                    .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RoseGold.MOD_ID, "rose_gold_sword")))));
 
     public static final Item ROSE_GOLD_AXE = registerItem("rose_gold_axe",
-            new AxeItem(RoseGoldToolMaterial.ROSE_GOLD, new Item.Settings()
-                    .attributeModifiers(SwordItem.createAttributeModifiers(RoseGoldToolMaterial.ROSE_GOLD, 6, -3.1f))));
+            new AxeItem(RoseGoldToolMaterial.ROSE_GOLD, 6, -3.1f, new Item.Settings()
+                    .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RoseGold.MOD_ID, "rose_gold_axe")))));
 
     public static final Item ROSE_GOLD_PICKAXE = registerItem("rose_gold_pickaxe",
-            new PickaxeItem(RoseGoldToolMaterial.ROSE_GOLD_SWORD, new Item.Settings()
-                    .attributeModifiers(SwordItem.createAttributeModifiers(RoseGoldToolMaterial.ROSE_GOLD_SWORD, 1, -2.8f))));
+            new PickaxeItem(RoseGoldToolMaterial.ROSE_GOLD, 1, -2.8f, new Item.Settings()
+                    .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RoseGold.MOD_ID, "rose_gold_pickaxe")))));
 
     public static final Item ROSE_GOLD_SHOVEL = registerItem("rose_gold_shovel",
-            new ShovelItem(RoseGoldToolMaterial.ROSE_GOLD, new Item.Settings()
-                    .attributeModifiers(SwordItem.createAttributeModifiers(RoseGoldToolMaterial.ROSE_GOLD, 2, -3.0f))));
+            new ShovelItem(RoseGoldToolMaterial.ROSE_GOLD, 2, -3.0f, new Item.Settings()
+                    .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RoseGold.MOD_ID, "rose_gold_shovel")))));
 
     public static final Item ROSE_GOLD_HOE = registerItem("rose_gold_hoe",
-            new HoeItem(RoseGoldToolMaterial.ROSE_GOLD, new Item.Settings()
-                    .attributeModifiers(SwordItem.createAttributeModifiers(RoseGoldToolMaterial.ROSE_GOLD, -2, 0f))));
+            new HoeItem(RoseGoldToolMaterial.ROSE_GOLD, -2, 0f, new Item.Settings()
+                    .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RoseGold.MOD_ID, "rose_gold_hoe")))));
 
 
     public static final Item ROSE_GOLD_HELMET = registerItem("rose_gold_helmet",
-            new ArmorItem(RoseGoldArmorMaterial.ROSE_GOLD_ARMOR_MATERIAL, ArmorItem.Type.HELMET, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(19))));
+            new ArmorItem(RoseGoldArmorMaterial.ROSE_GOLD_ARMOR_MATERIAL, EquipmentType.HELMET, new Item.Settings()
+                    .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RoseGold.MOD_ID, "rose_gold_helmet")))));
 
     public static final Item ROSE_GOLD_CHESTPLATE = registerItem("rose_gold_chestplate",
-            new ArmorItem(RoseGoldArmorMaterial.ROSE_GOLD_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(19))));
+            new ArmorItem(RoseGoldArmorMaterial.ROSE_GOLD_ARMOR_MATERIAL, EquipmentType.CHESTPLATE, new Item.Settings()
+                    .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RoseGold.MOD_ID, "rose_gold_chestplate")))));
 
     public static final Item ROSE_GOLD_LEGGINGS = registerItem("rose_gold_leggings",
-            new ArmorItem(RoseGoldArmorMaterial.ROSE_GOLD_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(19))));
+            new ArmorItem(RoseGoldArmorMaterial.ROSE_GOLD_ARMOR_MATERIAL, EquipmentType.LEGGINGS, new Item.Settings()
+                    .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RoseGold.MOD_ID, "rose_gold_leggings")))));
 
     public static final Item ROSE_GOLD_BOOTS = registerItem("rose_gold_boots",
-            new ArmorItem(RoseGoldArmorMaterial.ROSE_GOLD_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(19))));
+            new ArmorItem(RoseGoldArmorMaterial.ROSE_GOLD_ARMOR_MATERIAL, EquipmentType.BOOTS, new Item.Settings()
+                    .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(RoseGold.MOD_ID, "rose_gold_boots")))));
 
 
 
