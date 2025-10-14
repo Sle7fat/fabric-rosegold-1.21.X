@@ -12,7 +12,7 @@ import java.util.EnumMap;
 
 public class RoseGoldArmorMaterial {
 
-    public static final ArmorMaterial ROSE_GOLD_ARMOR_MATERIAL = new ArmorMaterial(500,
+    public static final ArmorMaterial ROSE_GOLD_ARMOR_MATERIAL = new ArmorMaterial(19,
             Util.make(new EnumMap<>(EquipmentType.class), map -> {
                 map.put(EquipmentType.BOOTS, 2);
                 map.put(EquipmentType.LEGGINGS, 5);
